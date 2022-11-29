@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "$id": "urn:jsonschema:fr:ans:psc:patient-info",
+  "description": "a context with basic Ps and patient infos",
+  "type" : "object",
+  "properties": {
+    "ps": {
+      "title": "Ps",
+      "type": "object",
+      "description": "",
+      "$ref": "#/$defs/ps"
+    },
+    "patient" : {
+      "title": "Patient",
+      "type": "object",
+      "description": "",
+      "$ref": "#/$defs/patient"
+    }
+  },
+  "required" : ["ps"],
+  "additionalProperties": false,
+  "$defs": {
+    "ps": {
+      "type": "object",
+      "properties": {
+        "nationalId": {"type":  "string"},
+        "professionalFirstName": {"type":  "string"},
+        "professionalLastName": {"type":  "string"},
+        "professionalCivilityTitle": {"type":  "string"},
+        "professionCode": {"type":  "string"},
+        "professionalCategoryCode": {"type":  "string"},
+        "expertiseCode": {"type":  "string"},
+        "companyTechnicalIdentifier": {"type":  "string"},
+        "companyName": {"type":  "string"},
+        "companyWayNumber": {"type":  "string"},
+        "companyRepeatIndex": {"type":  "string"},
+        "companyWayType": {"type":  "string"},
+        "companyWayLabel": {"type":  "string"},
+        "companyPostalCode": {"type":  "string"},
+        "companyCedexOffice": {"type":  "string"},
+        "companyRegistrationAuthority": {"type":  "string"}
+      },
+      "required": ["nationalId"],
+      "additionalProperties": false
+    },
+    "patient": {
+      "type": "object",
+      "properties": {
+        "patientINS": {"type":  "string"},
+        "patientFirstName": {"type":  "string"},
+        "patientLastName": {"type":  "string"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

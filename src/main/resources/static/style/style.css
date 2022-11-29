@@ -1,0 +1,11 @@
+.psc_button {
+    height: 60px;
+    width: 230px;
+    border: none !important;
+    background: none;
+    background-image: url("../img/prosanteconnect-bouton.png");
+}
+
+.psc_button:hover {
+    background-image: url("../img/prosanteconnect-bouton-hover.png");
+}

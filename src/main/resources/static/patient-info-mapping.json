@@ -1,0 +1,7 @@
+{
+  "inputPatientFirstName":  "bag.patient.patientFirstName",
+  "inputPatientLastName": "bag.patient.patientLastName",
+  "inputPatientINS": "bag.patient.patientINS",
+  "inputPsNationalId": "bag.ps.toto",
+  "inputRAOUL": "bag.volfoni"
+}
