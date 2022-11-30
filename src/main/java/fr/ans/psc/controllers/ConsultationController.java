@@ -10,6 +10,6 @@ public class ConsultationController {
 
     @GetMapping()
     public String navigate() {
-        return "/new-consultation";
+        return "new-consultation";
     }
 }
