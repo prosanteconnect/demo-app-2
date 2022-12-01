@@ -2,6 +2,6 @@
   "inputPatientFirstName":  "bag.patient.patientFirstName",
   "inputPatientLastName": "bag.patient.patientLastName",
   "inputPatientINS": "bag.patient.patientINS",
-  "inputPsNationalId": "bag.ps.toto",
-  "inputRAOUL": "bag.volfoni"
+  "inputPsNationalId": "bag.ps.nationalId",
+  "inputPatientDOB": "bag.patient.patientDOB"
 }
