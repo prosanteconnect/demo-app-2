@@ -46,9 +46,7 @@ function putInCache(schemaName, serverUrl, viewURL) {
             data: JSON.stringify(putPscContext)
         })
             .done(function(data) { window.location.href=viewURL })
-            .fail(function(jqXHR, textStatus, errorThrown) {
-                window.location.href=viewURL
-            })
+            .fail(function(jqXHR, textStatus, errorThrown) { window.location.href=viewURL})
     })
 }
 
