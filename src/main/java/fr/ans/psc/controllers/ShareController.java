@@ -10,12 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
-import java.util.Objects;
 
 @RestController
 @Slf4j
@@ -69,7 +64,7 @@ public class ShareController {
     private HttpEntity<String> prepareRequest(OAuth2AuthorizedClient client, String requestBody) {
         log.debug("retrieving access token...");
         String accessToken = client.getAccessToken().getTokenValue();
-//        HttpServletRequest incoming = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
+
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken);
         headers.add(HttpHeaders.ACCEPT, APPLICATION_JSON);

@@ -7,10 +7,12 @@ function getFromCache() {
         if (data !== null && data !== "") {
             pscContext = data;
             const btnPreFill = $("#btnPreFill");
-            btnPreFill.removeAttr("hidden");
             const contextTooltip = $('#contextTooltip')
+
+            btnPreFill.removeAttr("hidden");
             contextTooltip.removeAttr('hidden')
-            document.getElementById('contextTooltip').setAttribute('title', JSON.stringify(pscContext, null, 2))
+            document.getElementById('contextTooltip').setAttribute(
+                'title', JSON.stringify(pscContext, null, 2))
         }
     });
 }
@@ -26,7 +28,8 @@ function fillForm() {
 }
 
 function putInCache(schemaName, viewURL) {
-    const csrfToken = document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, '$1');
+    const csrfToken = document.cookie.replace(/(?:(?:^|.*;\s*)CSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, '$1');
+    const xsrfToken = document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, '$1');
     let putPscContext = {};
 
     $.getJSON(mappingUrl, function (data) {
@@ -40,7 +43,7 @@ function putInCache(schemaName, viewURL) {
         $.ajax({
             url: '/secure/share',
             type: 'PUT',
-            headers: {'X-XSRF-TOKEN': csrfToken},
+            headers: {'X-XSRF-TOKEN': xsrfToken, 'X-CSRF-TOKEN': csrfToken},
             dataType: 'json',
             contentType: 'application/json',
             data: JSON.stringify(putPscContext)
