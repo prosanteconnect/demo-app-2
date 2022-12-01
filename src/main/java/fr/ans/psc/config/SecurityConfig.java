@@ -24,7 +24,7 @@ public class SecurityConfig {
 
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        CookieCsrfTokenRepository cookieCsrfTokenRepository = CookieCsrfTokenRepository.withHttpOnlyFalse();
+        CookieCsrfTokenRepository cookieCsrfTokenRepository = new CookieCsrfTokenRepository();
         cookieCsrfTokenRepository.setSecure(true);
         http.oauth2Login(Customizer.withDefaults());
 
