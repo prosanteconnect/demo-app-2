@@ -2,8 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-<!--    <meta name="_csrf" content="${_csrf.token}"/>-->
-<!--    <meta name="_csrf_header" content="${_csrf.headerName}"/>-->
     <title>Enregistrement d'un nouvau patient</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
@@ -12,10 +10,6 @@
     <link rel="stylesheet" href="/style/style-ans.css" type="text/css">
     <link rel="stylesheet" href="/style/print.css" type="text/css" media="print">
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-
-    <script type="text/javascript" src="/script/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="/script/vendor.js"></script>
-    <script type="text/javascript" src="/script/app.js"></script>
 
     <!--
         this script has to be added to handle ProSanteConnect context sharing
@@ -97,6 +91,7 @@
         <div class="container">
             <div>
                 <h4>Bilan de consultation</h4>
+                <!-- START add prefill button -->
                 <button type="button" class=" badge badge-pill badge-success" hidden
                         style="margin: 5px" id="btnPreFill" onclick="fillForm()">
                     Préremplir
@@ -106,6 +101,7 @@
                     <svg class="svg-icon svg-question-circle" aria-hidden="true" focusable="false"><use xlink:href="/svg-icons/icon-sprite.svg#question-circle"></use></svg>
                     <span class="sr-only">Aide</span>
                 </button>
+                <!-- END add prefill button -->
             </div>
 
             <form id="patientForm" action="/secure/patient/new" method="post">
@@ -171,37 +167,25 @@
                 </div>
 
                 <div style="display: flex; flex-direction: row; padding: 5px">
+                    <!-- START add ajax call to share controller before submitting -->
                     <button type="button" class=" btn btn--plain btn--primary"
                             onclick="putInCache('patient-info', '/secure/consultation')" style="margin: 5px">Enregistrer
                     </button>
+                    <!-- END add ajax call to share controller before submitting -->
                 </div>
             </form>
         </div>
     </main>
 </div>
 
-<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="modal1Label">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title" id="modal1Label">Titre de la modale</h1>
-                <button type="button" data-dismiss="modal" class=" btn btn--close btn--icon-only">
-                    <svg class="svg-icon svg-close" aria-hidden="true" focusable="false">
-                        <use xlink:href="/svg-icons/icon-sprite.svg#close"></use>
-                    </svg>
-                    <span class="sr-only">Fermer : Titre de la modale</span></button>
-            </div>
-            <div class="modal-body">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam corrupti obcaecati nobis nihil illo.
-                    Quo dicta consequatur a repellendus expedita sapiente impedit molestias laborum quisquam error sequi
-                    blanditiis, quas sit?</p>
-            </div>
-        </div>
-    </div>
-</div>
+<script type="text/javascript" src="/script/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/script/vendor.js"></script>
+<script type="text/javascript" src="/script/app.js"></script>
 
-<script>
-    getFromCache()
-</script>
+<!-- add method call from script -->
+<script>getFromCache()</script>
+<!-- add method call from script -->
+
+
 </body>
 </html>
