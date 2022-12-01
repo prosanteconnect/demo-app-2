@@ -169,7 +169,7 @@
                 <div style="display: flex; flex-direction: row; padding: 5px">
                     <!-- START add ajax call to share controller before submitting -->
                     <button type="button" class=" btn btn--plain btn--primary"
-                            onclick="putInCache('patient-info', '/secure/consultation')" style="margin: 5px">Enregistrer
+                            onclick="putInCache('patient-info', '/secure/share', '/secure/consultation')" style="margin: 5px">Enregistrer
                     </button>
                     <!-- END add ajax call to share controller before submitting -->
                 </div>
@@ -183,7 +183,7 @@
 <script type="text/javascript" src="/script/app.js"></script>
 
 <!-- add method call from script -->
-<script>getFromCache()</script>
+<script>getFromCache("/secure/share")</script>
 <!-- add method call from script -->
 
 
