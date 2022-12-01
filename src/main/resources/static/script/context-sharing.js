@@ -31,8 +31,8 @@ function putInCache(schemaName, viewURL) {
     // const csrfToken = document.cookie.replace(/(?:(?:^|.*;\s*)CSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, '$1');
     // const xsrfToken = document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, '$1');
 
-    const token = $("meta[name='_csrf']").attr("content")
-    const header = $("meta[name='_csrf_header']").attr("content")
+    // const token = $("meta[name='_csrf']").attr("content")
+    // const header = $("meta[name='_csrf_header']").attr("content")
 
     let putPscContext = {};
 
@@ -48,7 +48,7 @@ function putInCache(schemaName, viewURL) {
             url: '/secure/share',
             type: 'PUT',
             // headers: {'X-XSRF-TOKEN': xsrfToken, 'X-CSRF-TOKEN': csrfToken},
-            headers: {header, token},
+            // headers: {header, token},
             dataType: 'json',
             contentType: 'application/json',
             data: JSON.stringify(putPscContext)

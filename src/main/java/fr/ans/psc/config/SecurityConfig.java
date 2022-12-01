@@ -36,7 +36,7 @@ public class SecurityConfig {
                 .logout().clearAuthentication(true).deleteCookies("JSESSIONID").invalidateHttpSession(true).and()
 
                 .cors().configurationSource(corsConfigurationSource()).and()
-                .csrf().csrfTokenRepository(cookieCsrfTokenRepository).ignoringAntMatchers("/logout");
+                .csrf().csrfTokenRepository(cookieCsrfTokenRepository).ignoringAntMatchers("/logout", "/secure/share");
 
         return http.build();
     }
